@@ -19,3 +19,50 @@ class Users:
 
     def __str__(self):
         return f"User(username={self.username}, email={self.email})"
+
+
+class UserSignUp:
+    def __init__(self, username: str, email: str, password: str, avatar_filename: str = None):
+        self.username = username
+        self.email = email
+        self.password = password
+        self.avatar_filename = avatar_filename
+
+    def is_valid(self):
+        return (
+            self._is_valid_username(self.username) and
+            self._is_valid_email(self.email) and
+            self._is_valid_password(self.password)
+        )
+
+    @staticmethod
+    def _is_valid_username(username):
+        return isinstance(username, str) and 4 <= len(username) <= 20
+
+    @staticmethod
+    def _is_valid_email(email):
+        return isinstance(email, str) and "@" in email
+
+    @staticmethod
+    def _is_valid_password(password):
+        return isinstance(password, str) and len(password) >= 6
+
+
+class UserSignIn:
+    def __init__(self, email: str, password: str):
+        self.email = email
+        self.password = password
+
+    def is_valid(self):
+        return (
+            self._is_valid_email(self.email) and
+            self._is_valid_password(self.password)
+        )
+
+    @staticmethod
+    def _is_valid_email(email):
+        return isinstance(email, str) and "@" in email
+
+    @staticmethod
+    def _is_valid_password(password):
+        return isinstance(password, str) and len(password) >= 6
