@@ -4,13 +4,8 @@ from typing import Dict, Union
 from UReader.src.auth.auth import JWTInterface
 
 
-with open("D:\\UReader\\UReader\\src\\certs\\jwt-private.pem", 'r') as key_file:
-    PRIVATE_KEY = key_file.read()
-
-with open("D:\\UReader\\UReader\\src\\certs\\jwt-public.pem", 'r') as key_file:
-    PUBLIC_KEY = key_file.read()
-
-
+PRIVATE_KEY = ""
+PUBLIC_KEY = ""
 ALGORITHM = "RS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 REFRESH_TOKEN_ACCESS_DAYS = 7
