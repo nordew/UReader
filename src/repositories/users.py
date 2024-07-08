@@ -1,7 +1,7 @@
 from typing import Optional, List
 from UReader.src.models.users import Users
 from abc import abstractmethod
-from UReader.src.schemas.users import UserSchema, UserSchemaCreate, UserSchemaUpdate
+from UReader.src.schemas.users import UserSchema
 
 
 class UserInterface:

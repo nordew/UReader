@@ -1,6 +1,5 @@
 from pathlib import Path
 import os
-from typing import Any
 from dotenv import load_dotenv
 from dataclasses import dataclass, field
 
