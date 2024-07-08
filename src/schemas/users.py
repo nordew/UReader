@@ -1,5 +1,5 @@
 from pydantic import BaseModel, EmailStr, Field
-from src.models.users import Users, UserSignUp, UserSignIn
+from src.models.users import User, UserSignUp, UserSignIn
 
 
 class UserSchema(BaseModel):
@@ -15,7 +15,7 @@ class UserSchema(BaseModel):
         from_attributes = True
 
     @classmethod
-    def from_model(cls, user: Users):
+    def from_model(cls, user: User):
         return cls(
             id=user.id,
             username=user.username,
@@ -26,8 +26,8 @@ class UserSchema(BaseModel):
             refresh_token=user.refresh_token
         )
 
-    def to_model(self) -> Users:
-        return Users(
+    def to_model(self) -> User:
+        return User(
             id=self.id,
             username=self.username,
             email=self.email,
@@ -51,14 +51,14 @@ class UserSchemaCreate(BaseModel):
     email: EmailStr
     avatar_filename: str = Field(default=None)
     password_hash: str
-    role: int = Users.ROLE_USER
+    role: int = User.ROLE_USER
     refresh_token: str
 
     class Config:
         from_attributes = True
 
-    def to_model(self) -> Users:
-        return Users(
+    def to_model(self) -> User:
+        return User(
             id=0,
             username=self.username,
             email=self.email,
@@ -80,7 +80,7 @@ class UserSchemaUpdate(BaseModel):
     class Config:
         from_attributes = True
 
-    def update_model(self, user: Users) -> Users:
+    def update_model(self, user: User) -> User:
         if self.username is not None:
             user.username = self.username
         if self.email is not None:
