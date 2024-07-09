@@ -1,5 +1,5 @@
 from pydantic import BaseModel, EmailStr, Field
-from src.models.users import User, UserSignUp, UserSignIn
+from src.models.users import User, UserSignIn
 
 
 class UserSchema(BaseModel):
@@ -113,11 +113,11 @@ class UserSchemaSignUp(BaseModel):
     class Config:
         from_attributes = True
 
-    def to_model(self) -> UserSignUp:
-        return UserSignUp(
+    def to_model(self) -> User:
+        return User(
             username=self.username,
             email=self.email,
-            password=self.password,
+            password_hash=self.password,
             avatar_filename=self.avatar_filename
         )
 

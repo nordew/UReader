@@ -1,7 +1,7 @@
 from typing import Optional, List
-from UReader.src.models.users import Users
+from src.models.users import User
 from abc import abstractmethod
-from UReader.src.schemas.users import UserSchema
+from src.schemas.users import UserSchema
 
 
 class UserInterface:
@@ -19,11 +19,11 @@ class UserInterface:
         raise NotImplementedError
 
     @abstractmethod
-    def create_user(self, user: Users) -> None:
+    def create_user(self, user: User) -> None:
         raise NotImplementedError
 
     @abstractmethod
-    def update_user(self, user_id: int, user: Users) -> None:
+    def update_user(self, user_id: int, user: User) -> None:
         raise NotImplementedError
 
     @abstractmethod

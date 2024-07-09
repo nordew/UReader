@@ -1,7 +1,7 @@
 import jwt
 from datetime import datetime, timedelta
 from typing import Dict, Union
-from UReader.src.auth.auth import JWTInterface
+from src.auth.auth import JWTInterface
 
 
 PRIVATE_KEY = ""
